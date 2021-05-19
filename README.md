@@ -10,8 +10,8 @@ I did this assignment in WSL2 environment of Window10.
 ###################### exit 
 
 
-  if (!strcmp(command,"exit")){
-           return -1;
+        if (!strcmp(command,"exit")){
+        return -1;
         }
         
 By adding this code,
@@ -21,7 +21,7 @@ After comparing the command received through the strcmp function with "exit", a 
 ###################### hostname
 
 
- gethostname(hostname, LEN_HOSTNAME);
+        gethostname(hostname, LEN_HOSTNAME);
         printf("%c[1;31m",27);
         if (!strcmp(command,"hostname")){
                 printf("host name is %s\n", hostname);
@@ -33,10 +33,10 @@ The 'hostname' is received through'gethostname' and copied to the 'hostname' var
 ###################### username
 
 
- if (!strcmp(command, "username")){
-                printf("user name is %s\n", getpwuid(getuid())->pw_name);
-                continue;
-        }
+         if (!strcmp(command, "username")){
+         printf("user name is %s\n", getpwuid(getuid())->pw_name);
+         continue;
+         }
         
 When it is determined that the input'command' and'username' are the same, I implemented so that my username can be received and printed through'getpwuid(getuid())->pw_name'.
 And I implemented it so that we can exit the loop through continue. 
@@ -46,7 +46,7 @@ And I implemented it so that we can exit the loop through continue.
 
 By adding, 
 
-  if (!strcmp(command,"ls")){
+     if (!strcmp(command,"ls")){
              strcpy(command, "/bin/ls");
              }
              
@@ -55,7 +55,7 @@ When 'ls' is entered in the 'command',  '/bin/ls' is copied to the 'command' usi
 ###################### ls -l 
 
 
-if (!strcmp(command,"ls -l")) {
+     if (!strcmp(command,"ls -l")) {
              args[0]="/bin/ls";
              args[1]="-l";
              }
@@ -67,9 +67,9 @@ By substituting'/bin/ls' in args[0] and ls option'-l' in args[1], the file infor
 ###################### color 
 
 
-printf("%c[1;35m", 27); 
-printf("%c[1;33m",27); 
-printf("%c[1;31m",27);
+    printf("%c[1;35m", 27); 
+    printf("%c[1;33m",27); 
+    printf("%c[1;31m",27);
 
 Using like these codes, I implemented a function to color the shell. 
 
